@@ -1,0 +1,42 @@
+# ── Python ────────────────────────────────────────────────
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# ── 环境变量 / 密钥（绝对不能提交）───────────────────────
+.env
+.env.*
+!.env.example
+
+# ── 数据库文件（开发期 SQLite）────────────────────────────
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# ── 运行时产物 ────────────────────────────────────────────
+logs/
+*.log
+reports/
+uploads/
+tmp/
+
+# ── 前端 ──────────────────────────────────────────────────
+node_modules/
+dist/
+.vite/
+frontend/dist/
+
+# ── 编辑器 / 系统 ─────────────────────────────────────────
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db

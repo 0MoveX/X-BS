@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "起服务：uvicorn --reload（日常开发用这个）",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m", "uvicorn", "main:app",
+        "--reload",
+        "--host", "127.0.0.1",
+        "--port", "8000",
+        "--app-dir", "${workspaceFolder}"
+      ],
+      "isBackground": true,
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "打开接口文档 /docs",
+      "type": "shell",
+      "command": "Start-Process 'http://127.0.0.1:8000/docs'",
+      "problemMatcher": []
+    },
+    {
+      "label": "pip 安装依赖",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe -m pip install -r requirements.txt",
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.debugpy",
+    "charliermarsh.ruff",
+    "Vue.volar",
+    "qwtel.sqlite-viewer",
+    "yutengjing.vscode-mcp-bridge"
+  ]
+}

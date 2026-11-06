@@ -1,0 +1,31 @@
+# ── 毕设「网络安全资产信息收集与测绘平台」后端依赖 ─────────────────────────
+# 安装：.venv\Scripts\python.exe -m pip install -r requirements.txt
+# 说明：每行后面写了「它是干什么的」，忘了就回来看一眼。
+
+# ---------- Web 框架 ----------
+fastapi>=0.115            # 后端主框架：把函数变成 HTTP 接口 + 自动生成 /docs
+uvicorn[standard]>=0.30   # ASGI 服务器：真正跑 FastAPI 的那个进程（standard 带热重载）
+pydantic>=2.7             # 请求/响应数据校验（FastAPI 的底座）
+pydantic-settings>=2.3    # 从 .env 读配置（数据库地址、JWT 密钥等）
+email-validator>=2.1      # 让 Pydantic 的 EmailStr 能校验邮箱格式
+
+# ---------- 数据库 ----------
+SQLAlchemy>=2.0.30        # ORM：用 Python 类操作数据库表
+alembic>=1.13             # 数据库迁移：给表结构做版本控制
+aiosqlite>=0.20           # 异步 SQLite 驱动（开发期用 SQLite 文件，零安装）
+# 部署期换成 PostgreSQL 时再加：asyncpg>=0.29
+
+# ---------- 认证 ----------
+python-jose[cryptography]>=3.3   # 签发/校验 JWT
+passlib[bcrypt]>=1.7.4           # 密码哈希工具
+bcrypt==4.0.1                    # 必须锁这个版本：bcrypt>=4.1 与 passlib 1.7.4 不兼容，会报错
+python-multipart>=0.0.9          # 表单上传/OAuth2 登录接口必需（少了它登录接口直接报错）
+
+# ---------- 工具/网络（后面写扫描插件要用）----------
+python-dotenv>=1.0        # 读写 .env
+httpx>=0.27               # 异步 HTTP 客户端（抓页面、目录扫描、测接口）
+dnspython>=2.6            # DNS 查询（子域名枚举）
+
+# ---------- 测试 ----------
+pytest>=8.2               # 自动化测试
+pytest-asyncio>=0.23      # 测 async 函数
